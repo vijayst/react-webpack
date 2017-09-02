@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -25,5 +27,15 @@ module.exports = {
             path.resolve(__dirname, 'src')
         ],
         extensions: ['.js', '.jsx'],
+    },
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: 'src/index.html' }
+        ]),
+        new WriteFilePlugin()
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        historyApiFallback: true
     }
 }

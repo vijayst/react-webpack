@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../images/webpack.png') no-repeat center center fixed;
+    min-height: 100%;
+
+    h1 {
+        color: red;
+    }
+}

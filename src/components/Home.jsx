@@ -1,9 +1,12 @@
 import React from 'react';
+import '../styles/home.scss';
 
 export default class Home extends React.Component {
     render() {
         return (
-            <h1>Hello world</h1>
+            <div className="container">
+                <h1>Hello world</h1>
+            </div>
         );
     }
 }

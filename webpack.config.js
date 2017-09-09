@@ -15,6 +15,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.jsx?$/,
+                enforce: 'pre',
+                loader: 'eslint-loader',
+                options: {
+                    emitWarning: true
+                },
+            },
+            {
                 test: /.jsx?$/,
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
@@ -58,6 +66,10 @@ module.exports = {
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        hot: true
+        hot: true,
+        overlay: {
+            errors: true,
+            warnings: true,
+        }
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Home from './components/home2';
+import Home from './components/home';
 
 const render = Component => {
     ReactDOM.render(

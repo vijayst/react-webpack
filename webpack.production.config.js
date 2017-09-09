@@ -1,6 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: [
@@ -24,13 +25,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [{
-                    loader: 'style-loader'
-                }, {
-                    loader: 'css-loader'
-                }, {
-                    loader: 'sass-loader'
-                }]
+                use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
             },
             {
                 test: /\.(jpg|png|svg)$/,
@@ -52,13 +47,14 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/index.html' }
         ]),
+        new ExtractTextPlugin("styles.css"),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,
             },
             output: {
                 comments: false,
-            },
+            }
         })
     ]
 }

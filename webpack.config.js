@@ -1,5 +1,4 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -55,7 +54,6 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/index.html' }
         ]),
-        new WriteFilePlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {

@@ -1,9 +1,13 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/app.jsx',
+    entry: [
+        'webpack/hot/dev-server',
+        './src/app.jsx'
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -49,7 +53,8 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/index.html' }
         ]),
-        new WriteFilePlugin()
+        new WriteFilePlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),

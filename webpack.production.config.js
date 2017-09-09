@@ -51,6 +51,14 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             { from: 'src/index.html' }
-        ])
+        ]),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+            },
+            output: {
+                comments: false,
+            },
+        })
     ]
 }

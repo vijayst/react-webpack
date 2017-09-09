@@ -5,7 +5,8 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: [
-        'webpack/hot/dev-server',
+        'react-hot-loader/patch',
+        'webpack/hot/only-dev-server',
         './src/app.jsx'
     ],
     output: {
@@ -19,8 +20,9 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react']
+                options: {
+                    presets: [['es2015', { modules: false }], 'react'],
+                    plugins: ['react-hot-loader/babel']
                 }
             },
             {
@@ -58,6 +60,6 @@ module.exports = {
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        historyApiFallback: true
+        hot: true
     }
 }

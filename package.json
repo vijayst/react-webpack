@@ -4,7 +4,7 @@
     "description": "Scaffold React web app with Webpack 4",
     "scripts": {
         "start": "webpack-dev-server",
-        "build": "webpack"
+        "build": "webpack -p --config webpack.production.config.js"
     },
     "repository": {
         "type": "git",

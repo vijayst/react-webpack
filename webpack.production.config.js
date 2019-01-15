@@ -1,15 +1,13 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: [
-        './src/app.jsx'
-    ],
+    mode: 'development',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -19,42 +17,29 @@ module.exports = {
                 include: path.resolve(__dirname, 'src'),
                 exclude: /node_modules/,
                 options: {
-                    presets: [['es2015', { modules: false }], 'react'],
-                    plugins: ['react-hot-loader/babel']
+                    presets: ['@babel/preset-env', '@babel/preset-react']
                 }
             },
             {
                 test: /\.scss$/,
-                use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
-                test: /\.(jpg|png|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[ext]'
-                }
+                test: /\.(jpg|jpeg|png|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
-    resolve: {
-        modules: [
-            'node_modules',
-            path.resolve(__dirname, 'src')
-        ],
-        extensions: ['.js', '.jsx'],
-    },
     plugins: [
-        new CopyWebpackPlugin([
-            { from: 'src/index.html' }
-        ]),
-        new ExtractTextPlugin("styles.css"),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-            },
-            output: {
-                comments: false,
-            }
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
         })
-    ]
-}
+    ],
+};

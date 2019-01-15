@@ -1,12 +1,10 @@
 {
-    "name": "bootstrap",
+    "name": "react-webpack",
     "version": "1.0.0",
-    "description": "Scaffold React web app with Webpack 2",
-    "main": "index.js",
+    "description": "Scaffold React web app with Webpack 4",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack-dev-server",
-        "build": "webpack -p --config webpack.production.config.js"
+        "build": "webpack"
     },
     "repository": {
         "type": "git",
@@ -23,27 +21,18 @@
         "url": "https://github.com/vijayst/react-webpack/issues"
     },
     "homepage": "https://github.com/vijayst/react-webpack#readme",
-    "dependencies": {
-        "react": "^15.6.1",
-        "react-dom": "^15.6.1"
-    },
     "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-preset-es2015": "^6.24.1",
-        "babel-preset-react": "^6.24.1",
-        "copy-webpack-plugin": "^4.0.1",
-        "css-loader": "^0.28.7",
-        "eslint": "^4.6.1",
-        "eslint-loader": "^1.9.0",
-        "eslint-plugin-react": "^7.3.0",
-        "extract-text-webpack-plugin": "^3.0.0",
-        "file-loader": "^0.11.2",
-        "node-sass": "^4.5.3",
-        "react-hot-loader": "next",
-        "sass-loader": "^6.0.6",
-        "style-loader": "^0.18.2",
-        "webpack": "^3.5.5",
-        "webpack-dev-server": "^2.7.1"
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.5",
+        "html-webpack-plugin": "^3.2.0",
+        "webpack": "^4.28.4",
+        "webpack-cli": "^3.2.1",
+        "webpack-dev-server": "^3.1.14"
+    },
+    "dependencies": {
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0"
     }
 }

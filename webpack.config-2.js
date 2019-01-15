@@ -33,16 +33,16 @@ module.exports = {
                     plugins: ['react-hot-loader/babel']
                 }
             },
-            {
-                test: /\.scss$/,
-                use: [{
-                    loader: 'style-loader'
-                }, {
-                    loader: 'css-loader'
-                }, {
-                    loader: 'sass-loader'
-                }]
-            },
+{
+    test: /\.scss$/,
+    use: [{
+        loader: 'style-loader'
+    }, {
+        loader: 'css-loader'
+    }, {
+        loader: 'sass-loader'
+    }]
+},
             {
                 test: /\.(jpg|png|svg)$/,
                 loader: 'file-loader',

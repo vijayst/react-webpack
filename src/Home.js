@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './home.scss';
-import Trek from './trek.jpeg';
+import Trek from '../images/trek.jpeg';
 import { hot } from 'react-hot-loader/root'
 
 class Home extends Component {

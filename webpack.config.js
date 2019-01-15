@@ -13,14 +13,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js?$/,
-                enforce: 'pre',
-                loader: 'eslint-loader',
-                options: {
-                    emitWarning: true
-                },
-            },
-            {
                 test: /.jsx?$/,
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
